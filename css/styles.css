@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-principal: #2da8cef1;
+    --color-secundario: #dee6e7;
+    --color-terciario: #1ba01b;
+    --color-hover: #1456e2;
+    --color-texto: #ffffff;
+}
+
+body {
+    font-family: Roboto, Arial;
+    font-weight: 500;
+    margin-top: 45px;
+    background-color: var(--color-secundario);
+}
+
+.header-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-secundario);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.header-logo {
+    flex: 0 1 auto;
+}
+
+.logo-img {
+    height: 42px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    margin: 0;
+}
+
+.navbar ul a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 0.6em 1em;
+    font-weight: 600;
+    background-color: var(--color-secundario);
+    transition: background-color 0.3s;
+}
+
+.navbar ul a:hover {
+    background-color: var(--color-hover); /* Color al pasar el cursor */
+    color: white; /* Texto blanco al hacer hover */
+}
+
+.intro-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    background-color: var(--color-principal);
+    width: 100%;
+}
+
+.intro-imagen {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 500px;
+}
+
+.intro-img {
+    width: 100%;
+    height: auto;
+}
+
+.intro-texto {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-weight: 900;
+    font-size: 1.4rem;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.intro-texto p {
+    line-height: 1.6;
+    margin: 0px 10px 10px 0px;
+    color: var(--color-texto);
+}
+
+.btn:hover {
+    background-color: var(--color-hover);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.about-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    color: var(--color-principal);
+}
+
+.about-section p {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.footer {
+    background-color: var(--color-principal);
+    color: var(--color-texto);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-social {
+    margin-top: 10px;
+}
+
+.social-link {
+    margin: 0 10px;
+    color: var(--color-texto);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-link:hover {
+    color: var(--color-hover);
+}
