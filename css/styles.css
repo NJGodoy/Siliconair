@@ -72,28 +72,21 @@ body {
 .intro-section {
     display: flex;
     flex-wrap: wrap;
+    justify-self: center;
     align-content: center;
     justify-content: space-around;
-    background-color: var(--color-principal);
-    width: 100%;
-}
-
-.intro-imagen {
-    flex: 1 1 auto;
-    width: 50%;
-    max-width: 500px;
-}
-
-.intro-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+        url('../img/zapatilla_2.JPG');
+    background-size: cover;
+    background-position: center;
+    width: 95vw;
 }
 
 .intro-texto {
-    flex: 1 1 auto;
+    flex: 1 1 500px;
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 1.4em;
     text-align: left;
     display: flex;
     flex-wrap: wrap;
@@ -102,12 +95,13 @@ body {
     max-width: 600px;
     margin: 0 auto;
     color: var(--color-texto);
+    text-shadow: 2px 2px 2px black;
 }
 
 .intro-texto p {
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     line-height: 1.8;
-    margin: 0px 10px 10px 0px;
+    margin: 0 10px 10px 0;
 }
 
 .btn:hover {
@@ -142,14 +136,14 @@ body {
     margin-bottom: 5px;
 }
 
-#etiqueta-productos {
+.etiqueta {
     color: var(--color-terciario)
 }
 
 .product-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     padding: 40px;
     border-top: 1px solid var(--color-principal);
 }
@@ -157,13 +151,13 @@ body {
 .card {
     display: flex;
     flex-wrap: wrap;
-    flex: 1 1 300px; /* Permite que las tarjetas se ajusten a 300px como mínimo */
+    flex: 1 1 300px;
     background-color: var(--color-principal);
     overflow: hidden;
     min-width: 40%;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease; /* Transición suave al escalar */
+    transition: transform 0.5s ease-in-out;
 }
 
 .card:hover {
@@ -190,6 +184,124 @@ body {
     font-weight: normal;
     font-size: 1em;
     color: var(--color-texto);
+}
+
+.contact-section {
+    padding: 20px;
+    background-color: var(--color-secundario);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form{
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    padding: 16px;
+    height: auto;
+    margin: 10px;
+}
+
+form h1 {
+    align-self: center;
+    color: var(--color-principal);
+}
+
+.input-contact {
+    font-family: sans-serif;
+    font-size: 1em;
+    width: 70%;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+.input-contact:focus-within {
+    outline: none;
+    border-color: var(--color-hover);
+}
+
+button[type="submit"] {
+    font-family: sans-serif;
+    font-size: 1em;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: var(--color-hover);
+    color: var(--color-texto);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 20px auto;
+}
+
+button[type="submit"]:hover {
+    color: black;
+    background-color: darken(var(--color-principal), 10%); /* Oscurecer color al pasar el ratón */
+}
+
+/* Breakpoint para pantallas pequeñas*/
+@media (max-width: 600px) {
+    body{
+        margin-top: 100px;
+    }
+
+    form {
+        font-size: 1.4em;
+        width: 90vw;
+        padding: 10px;
+    }
+
+    .input-contact {
+        font-size: 1.2em;
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        font-size: 1.2em;
+        padding: 8px 16px;
+    }
+}
+
+/*Breakpoint para pantallas medianas*/
+@media (min-width: 601px) and (max-width: 1024px) {
+    form {
+        font-size: 1.4em;
+        width: 80vw;
+    }
+
+    .input-contact {
+        font-size: 1.1em;
+        width: 100%;
+    }
+
+    button[type="submit"] {
+        font-size: 1.1em;
+        padding: 10px 20px;
+    }
+}
+
+/* Breakpoint para pantallas grandes*/
+@media (min-width: 1025px) {
+    form {
+        font-size: 1.6em;
+        width: 80vw;
+    }
+
+    .input-contact {
+        font-size: 1.3em;
+    }
+
+    button[type="submit"] {
+        font-size: 1.3em;
+        padding: 12px 24px;
+    }
 }
 
 .footer {
