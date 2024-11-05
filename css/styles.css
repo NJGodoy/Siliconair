@@ -137,6 +137,7 @@ body {
 }
 
 .etiqueta {
+    justify-self: center;
     color: var(--color-terciario)
 }
 
@@ -184,6 +185,26 @@ body {
     font-weight: normal;
     font-size: 1em;
     color: var(--color-texto);
+}
+
+@media (max-width: 428px) {
+    .card {
+        flex-direction: column;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .product-image {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+
+    .product-content {
+        max-width: 100%;
+        width: 100%;
+        padding: 15px;
+    }
 }
 
 .contact-section {
