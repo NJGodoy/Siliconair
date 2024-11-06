@@ -75,8 +75,9 @@ body {
     justify-self: center;
     align-content: center;
     justify-content: space-around;
+    padding: 10px;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)),
         url('../img/zapatilla_2.JPG');
     background-size: cover;
     background-position: center;
