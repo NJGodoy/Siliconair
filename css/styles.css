@@ -9,7 +9,7 @@
     --color-secundario: #dee6e7;
     --color-terciario: #0f850f;
     --color-hover: #1456e2;
-    --color-texto: #ffffff;
+    --color-texto: #ffffffe3;
 }
 
 body {
@@ -142,50 +142,89 @@ body {
     color: var(--color-terciario)
 }
 
-.product-section {
+#product-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: space-evenly;
+    gap: 10px;
     padding: 40px;
     border-top: 1px solid var(--color-principal);
 }
 
 .card {
     display: flex;
-    flex-wrap: wrap;
-    flex: 1 1 300px;
-    background-color: var(--color-principal);
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28%;
+    height: 300px;
+    margin: 20px;
+    border-radius: 10px;
     overflow: hidden;
-    min-width: 40%;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.5s ease-in-out;
-}
-
-.card:hover {
-    transform: scale(1.07);
-    z-index: 10;
-}
-
-.product-image {
-    flex: 1 1 200px;
-    max-width: 40%;
-    overflow: hidden;
-}
-
-.product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.product-content {
-    flex: 1 1 200px;
-    padding: 10px;
-    font-weight: normal;
-    font-size: 1em;
+    position: relative;
     color: var(--color-texto);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 2s ease-in-out;
+}
+
+.expanded {
+    width: 100%;
+    height: auto;
+    transition: all 2s ease-in-out;
+}
+
+.card .product-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+}
+
+/* Botón +info */
+.btn-info {
+    align-self: flex-end;
+    background-color: var(--color-principal);
+    font-size: 1.2em;
+    color: var(--color-texto);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-info:hover {
+    background-color: var(--color-hover);
+}
+
+.card-expanded {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 2s ease-in-out;
+}
+
+.card-expanded .image-container {
+    flex: 1 1 20%;
+}
+
+.card-expanded img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-expanded .details {
+    flex: 1 1 80%;
+    display: flex;
+    font-size: 1.2em;
+    color: var(--color-principal);
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media (max-width: 428px) {
