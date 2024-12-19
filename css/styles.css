@@ -15,58 +15,25 @@
 body {
     font-family: Roboto, Arial;
     font-weight: 500;
-    margin-top: 80px;
     background-color: var(--color-secundario);
 }
 
-.header-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--color-secundario);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
-    z-index: 1000;
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: var(--color-principal);
 }
 
 .header-logo {
     flex: 0 1 auto;
 }
 
-.logo-img {
+#logo-img {
     height: 42px;
 }
 
-.navbar ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    font-size: 1.2rem;
-    padding: 0;
-    margin: 0;
-}
-
-.navbar ul li {
-    margin: 0;
-}
-
-.navbar ul a {
-    display: block;
-    text-decoration: none;
-    color: black;
-    padding: 0.6em 1em;
-    font-weight: 600;
-    background-color: var(--color-secundario);
-    transition: background-color 0.3s;
-}
 
 .navbar ul a:hover {
-    background-color: var(--color-hover); /* Color al pasar el cursor */
-    color: white; /* Texto blanco al hacer hover */
+    background-color: var(--color-hover);
+    color: white;
 }
 
 .intro-section {
