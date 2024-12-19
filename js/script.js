@@ -53,7 +53,7 @@ function renderProductos(productos) {
     const boton = document.createElement("button");
     boton.textContent = "+info";
     boton.classList.add("btn-info");
-    boton.addEventListener("click", () => expandirProducto(index)); // Evento click
+    boton.addEventListener("click", () => expandirProducto(index));
 
     // Agregar elementos al contenido
     content.appendChild(titulo);
@@ -104,8 +104,8 @@ function expandirProducto(index) {
     boton.style.margin = "10px";
     boton.classList.add("btn-info");
     boton.addEventListener("click", () => {
-        card.classList.remove("expanded"); // Regresa al estado colapsado
-        renderProductos(productos); // Regresa a la vista inicial
+        card.classList.remove("expanded");
+        renderProductos(productos);
     });
 
     // Agregar elementos a los detalles
