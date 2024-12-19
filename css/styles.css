@@ -40,15 +40,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-self: center;
-    align-content: center;
     justify-content: space-around;
-    padding: 10px;
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)),
         url('../img/zapatilla_2.JPG');
     background-size: cover;
     background-position: center;
-    width: 95vw;
+    width: 100%;
 }
 
 .intro-texto {
@@ -66,7 +64,7 @@ body {
     text-shadow: 2px 2px 2px black;
 }
 
-.intro-texto p {
+.intro-section .intro-texto p {
     flex: 1 1 auto;
     line-height: 1.8;
     margin: 0 10px 10px 0;
@@ -88,12 +86,13 @@ body {
     margin: 20px auto;
 }
 
-.about-section {
+.intro-section .about-section {
     padding: 40px 20px;
     text-align: center;
 }
 
 .about-section h2 {
+    justify-self: center;
     font-size: 2.5rem;
     color: var(--color-principal);
 }
@@ -276,9 +275,6 @@ button[type="submit"]:hover {
 
 /* Breakpoint para pantallas pequeñas*/
 @media (max-width: 600px) {
-    body{
-        margin-top: 100px;
-    }
 
     form {
         font-size: 1.4em;
