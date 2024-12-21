@@ -15,7 +15,8 @@
 body {
     font-family: Roboto, Arial;
     font-weight: 500;
-    background-color: var(--color-secundario);
+    background: linear-gradient(135deg, #90ee90, #7ad7f0 70%);
+    background-attachment: fixed;
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
@@ -30,7 +31,6 @@ body {
     height: 42px;
 }
 
-
 .navbar ul a:hover {
     background-color: var(--color-hover);
     color: white;
@@ -40,10 +40,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-self: center;
+    align-items: center;
     justify-content: space-around;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)),
-        url('../img/zapatilla_2.JPG');
+    padding: 0px 20px;
+    background-image: url('../img/zapatilla_2.JPG');
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -57,11 +57,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    padding-top: 20px;
+    padding: 30px;
     max-width: 600px;
     margin: 0 auto;
     color: var(--color-texto);
     text-shadow: 2px 2px 2px black;
+    background-color: rgba(37, 35, 35, 0.425);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .intro-section .intro-texto p {
@@ -94,12 +97,14 @@ body {
 .about-section h2 {
     justify-self: center;
     font-size: 2.5rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     color: var(--color-principal);
 }
 
 .about-section p {
     font-size: 1.2rem;
     line-height: 1.8;
+    padding: 20px;
     margin-bottom: 5px;
 }
 
@@ -128,14 +133,11 @@ body {
     overflow: hidden;
     position: relative;
     color: var(--color-texto);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: all 2s ease-in-out;
 }
 
 .expanded {
     width: 100%;
     height: auto;
-    transition: all 2s ease-in-out;
 }
 
 .card .product-content {
@@ -147,20 +149,27 @@ body {
     height: 100%;
 }
 
-/* Botón +info */
-.btn-info {
+.buttons {
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+    align-items: center;
+}
+
+
+.btn-product{
     align-self: flex-end;
     background-color: var(--color-principal);
     font-size: 1.2em;
     color: var(--color-texto);
     border: none;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
-.btn-info:hover {
+.btn-product:hover {
     background-color: var(--color-hover);
 }
 
@@ -170,8 +179,6 @@ body {
     gap: 10px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    transition: all 2s ease-in-out;
 }
 
 .card-expanded .image-container {
@@ -193,7 +200,136 @@ body {
     justify-content: space-between;
 }
 
-@media (max-width: 428px) {
+#cart-icon {
+    position: relative;
+    font-size: 24px;
+    color: var(--color-principal);
+    cursor: pointer;
+}
+
+#cart-dropdown {
+    position: absolute;
+    top: 70%;
+    right: 0px;
+    width: 400px;
+    background-color: white;
+    border: 1px solid var(--color-principal);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 460px) {
+    #cart-dropdown {
+        font-size: small;
+        width: 390px;
+        top: 100%;
+        right: 0;
+    }
+}
+
+#cart-dropdown.visible {
+    display: block;
+}
+
+.cart-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: small;
+padding: 10px 0;
+border-bottom: 1px solid #ddd;
+}
+
+.quantity-btn {
+    background-color: var(--color-principal);
+    font-size: 1.1em;
+    width: 30px;
+    color: var(--color-texto);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-btn:hover {
+    background-color: var(--color-hover);
+}
+
+#cart-buttons {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#cart-checkout, #cart-clear {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    font-size: medium;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cart-item span {
+flex: 1;
+}
+
+.cart-item button {
+margin-left: 10px;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: grey;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.remove-item-btn:hover {
+transform: scale(1.2);
+color: red;
+}
+
+#cart-count {
+position: absolute;
+top: -5px;
+right: -10px;
+background-color: red;
+color: white;
+font-size: 14px;
+font-weight: bold;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+transition: transform 0.3s ease-in-out;
+}
+
+#cart-count.updated {
+transform: scale(1.2);
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
     .card {
         flex-direction: column;
         max-width: 100%;
@@ -211,6 +347,37 @@ body {
         width: 100%;
         padding: 15px;
     }
+
+    .card-expanded {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px;
+    }
+
+    .card-expanded .image-container {
+        display: none;
+    }
+
+    .card-expanded .details {
+        font-size: 0.9em;
+    }
+
+    .card-expanded .details h2 {
+        font-size: 1.1em;
+    }
+
+    .card-expanded .details p {
+        font-size: 0.9em;
+    }
+
+    .buttons {
+        gap: 5px;
+    }
+
+    .btn-product {
+        font-size: 0.9em;
+        padding: 8px;
+    }
 }
 
 .contact-section {
@@ -218,6 +385,7 @@ body {
     background-color: var(--color-secundario);
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #90ee90, #7ad7f0 70%);
 }
 
 form{
@@ -235,6 +403,7 @@ form{
 
 form h1 {
     align-self: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     color: var(--color-principal);
 }
 
