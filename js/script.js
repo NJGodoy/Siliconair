@@ -25,7 +25,8 @@ const productos = [
     },
 ];
 
-
+const IVA = 0.21;
+const IMPUESTOS = IVA;
 
 document.addEventListener("DOMContentLoaded", () => {
   const productSection = document.getElementById("product-section");
@@ -153,6 +154,74 @@ document.addEventListener("DOMContentLoaded", () => {
   limpiar.addEventListener("click", () => {
     limpiarCarrito();
   });
+
+  function actualizarResumenCheckout() {
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const itemList = document.getElementById("item-list");
+    const modalSubtotal = document.getElementById("modal-subtotal");
+    const modalTaxes = document.getElementById("modal-taxes");
+    const modalTotal = document.getElementById("modal-total");
+
+    itemList.innerHTML = "";
+    let subtotal = 0;
+
+    carrito.forEach(producto => {
+      const itemRow = document.createElement("div");
+      itemRow.classList.add("item-row");
+      itemRow.innerHTML = `
+        <span>${producto.titulo} (x${producto.cantidad})</span>
+        <span>$${(producto.precio * producto.cantidad).toFixed(2)}</span>
+      `;
+      itemList.appendChild(itemRow);
+      subtotal += producto.precio * producto.cantidad;
+    });
+
+    const impuestos = subtotal * IMPUESTOS;
+    const total = subtotal + impuestos;
+
+    modalSubtotal.innerHTML = `<span class="label">Subtotal:</span><span class="value">$${subtotal.toFixed(2)}</span>`;
+    modalTaxes.innerHTML = `<span class="label">IVA + impuestos:</span><span class="value">$${impuestos.toFixed(2)}</span>`;
+    modalTotal.innerHTML = `<span class="label">Total:</span><span class="value">$${total.toFixed(2)}</span>`;
+  }
+
+  function crearModal() {
+    const checkoutButton = document.getElementById("cart-checkout");
+    const modal = document.getElementById("checkout-modal");
+    const closeModalButton = document.querySelector(".close-modal");
+    const confirmCheckoutButton = document.getElementById("confirm-checkout");
+    const cancelCheckoutButton = document.getElementById("cancel-checkout");
+  
+    // Abrir el modal al hacer clic en "Checkout"
+    checkoutButton.addEventListener("click", () => {
+      actualizarResumenCheckout();
+      modal.classList.remove("hidden");
+    });
+  
+    // Cerrar el modal al hacer clic en la "x"
+    closeModalButton.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+  
+    // Cerrar el modal al hacer clic en "Cancelar"
+    cancelCheckoutButton.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+  
+    // Confirmar el checkout
+    confirmCheckoutButton.addEventListener("click", () => {
+      alert("¡Gracias por su compra!");
+      limpiarCarrito();
+      modal.classList.add("hidden");
+    });
+  
+    // Cerrar el modal al hacer clic fuera de él
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.classList.add("hidden");
+      }
+    });
+  }
+  crearModal();
 
   function renderProductos(productos) {
       productSection.innerHTML = ""; // Limpiar contenido previo
