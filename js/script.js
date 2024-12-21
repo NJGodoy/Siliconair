@@ -33,10 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const carritoIcono = document.getElementById("cart-icon");
   const carritoVentana = document.getElementById("cart-dropdown");
+  const carritoContador = document.getElementById("cart-count");
   // Alternar la visibilidad del carrito
   carritoIcono.addEventListener("click", (event) => {
       event.stopPropagation();
       carritoVentana.classList.toggle("visible");
+      carritoContador.classList.toggle("hidden");
   });
 
   // Cerrar el carrito al hacer clic fuera
@@ -45,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.addEventListener("click", () => {
     carritoVentana.classList.remove("visible");
+    carritoContador.classList.remove("hidden");
   });
 
   function actualizarContadorCarrito() {
