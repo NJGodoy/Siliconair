@@ -161,10 +161,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalSubtotal = document.getElementById("modal-subtotal");
     const modalTaxes = document.getElementById("modal-taxes");
     const modalTotal = document.getElementById("modal-total");
+    const modal = document.getElementById("checkout-modal");
+
+    if (carrito.length == 0) {
+      alert("¡El carrito está vacío!");
+      return;
+    }
 
     itemList.innerHTML = "";
     let subtotal = 0;
 
+    modal.classList.remove("hidden");
+    
     carrito.forEach(producto => {
       const itemRow = document.createElement("div");
       itemRow.classList.add("item-row");
@@ -190,11 +198,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModalButton = document.querySelector(".close-modal");
     const confirmCheckoutButton = document.getElementById("confirm-checkout");
     const cancelCheckoutButton = document.getElementById("cancel-checkout");
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   
     // Abrir el modal al hacer clic en "Checkout"
     checkoutButton.addEventListener("click", () => {
       actualizarResumenCheckout();
-      modal.classList.remove("hidden");
     });
   
     // Cerrar el modal al hacer clic en la "x"
